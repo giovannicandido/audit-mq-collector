@@ -1,0 +1,4 @@
+spring.rabbitmq.host=192.168.99.100
+spring.datasource.url=jdbc:postgresql://localhost/audit
+spring.datasource.username=giovanni
+spring.datasource.password=1234

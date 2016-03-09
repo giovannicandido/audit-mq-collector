@@ -1,0 +1,3 @@
+[submodule "entity-model"]
+	path = entity-model
+	url = git@bitbucket.org:pucmg/entity-model.git
