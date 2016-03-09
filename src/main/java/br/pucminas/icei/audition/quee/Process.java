@@ -1,16 +1,16 @@
 package br.pucminas.icei.audition.quee;
 
+import br.pucminas.icei.audition.AuditCollectorException;
+import br.pucminas.icei.audition.AuditCollectorExceptionEvent;
 import br.pucminas.icei.audition.AuditEventDAO;
 import br.pucminas.icei.audition.entity.AuditEvent;
-import br.pucminas.icei.audition.entity.SecurityLevel;
 import org.apache.log4j.Logger;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.core.MessageListener;
+import org.springframework.amqp.support.converter.MessageConverter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Component;
-
-import java.time.LocalDateTime;
-import java.util.UUID;
 
 /**
  * @author Giovanni Silva.
@@ -20,12 +20,24 @@ public class Process implements MessageListener {
     private Logger logger = Logger.getLogger(Process.class);
 
     @Autowired
-    AuditEventDAO auditEventDAO;
+    private AuditEventDAO auditEventDAO;
+    @Autowired
+    private MessageConverter converter;
+    @Autowired
+    private ApplicationEventPublisher publisher;
 
     @Override
     public void onMessage(Message message) {
-        AuditEvent event = new AuditEvent("Test", "Test", "Ação de teste", LocalDateTime.now(),
-                "10.0.4.2", SecurityLevel.NORMAL);
-        auditEventDAO.save(event);
+        try {
+            AuditEvent event = (AuditEvent) converter.fromMessage(message);
+            auditEventDAO.save(event);
+        }catch(Exception ex){
+
+            AuditCollectorException exceptionEvent = new AuditCollectorException("Não pode salvar AuditEvent", ex);
+
+            publisher.publishEvent(new AuditCollectorExceptionEvent(exceptionEvent));
+//            throw exceptionEvent;
+        }
+
     }
 }
