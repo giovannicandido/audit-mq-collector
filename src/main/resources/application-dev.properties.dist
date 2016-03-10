@@ -1,4 +1,4 @@
-logging.level.ROOT=WARN
+logging.level.ROOT=INFO
 spring.rabbitmq.host=192.168.99.100
 params.datasource.jdbcUrl=jdbc:postgresql://localhost/audit
 params.datasource.username=giovanni
