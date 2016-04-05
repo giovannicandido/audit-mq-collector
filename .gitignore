@@ -2,5 +2,4 @@
 *.iml
 build/
 .gradle/
-src/main/resources/application-dev.properties
 logs/

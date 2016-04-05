@@ -5,3 +5,11 @@ rabbitmq:
     - "4369:4369"
     - "25672:25672"
     - "15672:15672"
+db:
+  image: postgres
+  ports:
+    - "5432:5432"
+  environment:
+    - POSTGRES_PASSWORD=1234
+    - POSTGRES_USER=super
+    - POSTGRES_DB=audit
