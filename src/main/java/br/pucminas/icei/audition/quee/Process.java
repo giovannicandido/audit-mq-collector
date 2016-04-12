@@ -36,7 +36,8 @@ public class Process implements MessageListener {
             AuditCollectorException exceptionEvent = new AuditCollectorException("Não pode salvar AuditEvent", ex);
 
             publisher.publishEvent(new AuditCollectorExceptionEvent(exceptionEvent));
-//            throw exceptionEvent;
+            // Return event to Queue
+            throw exceptionEvent;
         }
 
     }

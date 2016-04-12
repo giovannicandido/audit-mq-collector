@@ -40,6 +40,7 @@ public class ExceptionHandlerCenter {
         logger.info("Tentativa " + atual);
         logger.error(event.getException().getCause().getMessage());
         if(atual >= maxThreshold && container.isRunning()){
+            // TODO Send Email to responsible person
             logger.info("Sending email - Limit of exceptions in the queue reached");
             container.stop();
             count.set(0);
