@@ -14,6 +14,7 @@ import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.amqp.RabbitProperties;
+import org.springframework.boot.autoconfigure.amqp.SimpleRabbitListenerContainerFactoryConfigurer;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -23,26 +24,20 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @EnableRabbit
-@EnableConfigurationProperties(RabbitProperties.class)
 public class RabbitConfiguration {
-
     @Value("${audit.queueName}")
     String queueName = "auditLog";
-    @Autowired
-    RabbitProperties rabbitProperties;
+
     @Autowired
     Process process;
+    @Autowired
+    ConnectionFactory connectionFactory;
 
-    @Bean
-    public ConnectionFactory connectionFactory() {
-        CachingConnectionFactory connectionFactory = new CachingConnectionFactory(rabbitProperties.getHost());
-        return connectionFactory;
-    }
 
     @Bean
     public SimpleMessageListenerContainer messageListenerContainer() {
         SimpleMessageListenerContainer container = new SimpleMessageListenerContainer();
-        container.setConnectionFactory(connectionFactory());
+        container.setConnectionFactory(connectionFactory);
         container.setQueueNames(queueName);
         container.setMessageListener(process);
         return container;
@@ -71,7 +66,7 @@ public class RabbitConfiguration {
     }
     @Bean
     public RabbitTemplate rabbitTemplate(Jackson2JsonMessageConverter converter) {
-        RabbitTemplate template = new RabbitTemplate(connectionFactory());
+        RabbitTemplate template = new RabbitTemplate(connectionFactory);
         template.setRoutingKey(queueName);
         template.setMessageConverter(converter);
         return template;

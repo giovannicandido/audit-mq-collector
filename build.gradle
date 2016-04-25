@@ -33,6 +33,7 @@ dependencies {
 	compile('com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.6.1')
 	compile('com.zaxxer:HikariCP:2.4.4')
 	runtime('org.postgresql:postgresql')
+	runtime('org.flywaydb:flyway-core:3.2.1')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 
