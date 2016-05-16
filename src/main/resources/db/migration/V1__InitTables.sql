@@ -1,6 +1,7 @@
+CREATE SEQUENCE audit_seq MINVALUE 1 INCREMENT 1;
 CREATE TABLE audit_event
 (
-    id BIGINT PRIMARY KEY NOT NULL,
+    id BIGINT PRIMARY KEY DEFAULT nextval('audit_seq') NOT NULL,
     action VARCHAR(200) NOT NULL,
     application_name VARCHAR(50) NOT NULL,
     date_time TIMESTAMP NOT NULL,

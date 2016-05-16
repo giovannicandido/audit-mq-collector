@@ -1,6 +1,6 @@
 logging.level.ROOT=INFO
-spring.rabbitmq.host=192.168.99.100
+spring.rabbitmq.host=docker.local
 params.datasource.jdbcUrl=jdbc:postgresql://localhost/audit
 params.datasource.username=giovanni
 params.datasource.password=1234
-spring.jpa.hibernate.ddl-auto=create
+server.port=8082

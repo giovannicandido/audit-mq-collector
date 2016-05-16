@@ -3,3 +3,5 @@
 build/
 .gradle/
 logs/
+classes/
+src/main/resources/application.properties
