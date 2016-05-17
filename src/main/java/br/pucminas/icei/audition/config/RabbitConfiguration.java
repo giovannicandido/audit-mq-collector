@@ -25,7 +25,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @EnableRabbit
 public class RabbitConfiguration {
-    @Value("${audit.queueName}")
+    @Value("${audit.queue.name}")
     String queueName = "auditLog";
 
     @Autowired
