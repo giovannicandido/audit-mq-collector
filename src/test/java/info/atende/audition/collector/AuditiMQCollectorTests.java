@@ -1,4 +1,4 @@
-package br.pucminas.icei.audition;
+package info.atende.audition.collector;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

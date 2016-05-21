@@ -1,12 +1,10 @@
-package br.pucminas.icei.audition;
+package info.atende.audition.collector;
 
 import org.apache.log4j.Logger;
 import org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.event.EventListener;
-import org.springframework.core.task.TaskExecutor;
-import org.springframework.messaging.handler.annotation.MessageExceptionHandler;
 import org.springframework.scheduling.TaskScheduler;
 import org.springframework.stereotype.Component;
 

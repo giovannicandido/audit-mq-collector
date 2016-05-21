@@ -1,4 +1,4 @@
-package br.pucminas.icei.audition;
+package info.atende.audition.collector;
 
 import info.atende.audition.model.AuditEvent;
 import org.springframework.stereotype.Repository;

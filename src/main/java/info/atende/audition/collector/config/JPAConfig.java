@@ -1,4 +1,4 @@
-package br.pucminas.icei.audition.config;
+package info.atende.audition.collector.config;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;

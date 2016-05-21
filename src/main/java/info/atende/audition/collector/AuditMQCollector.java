@@ -1,4 +1,4 @@
-package br.pucminas.icei.audition;
+package info.atende.audition.collector;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

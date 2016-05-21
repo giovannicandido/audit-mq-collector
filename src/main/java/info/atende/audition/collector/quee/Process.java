@@ -1,8 +1,8 @@
-package br.pucminas.icei.audition.quee;
+package info.atende.audition.collector.quee;
 
-import br.pucminas.icei.audition.AuditCollectorException;
-import br.pucminas.icei.audition.AuditCollectorExceptionEvent;
-import br.pucminas.icei.audition.AuditEventDAO;
+import info.atende.audition.collector.AuditCollectorException;
+import info.atende.audition.collector.AuditCollectorExceptionEvent;
+import info.atende.audition.collector.AuditEventDAO;
 import info.atende.audition.model.AuditEvent;
 import org.apache.log4j.Logger;
 import org.springframework.amqp.core.Message;
