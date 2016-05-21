@@ -14,7 +14,7 @@ import java.sql.SQLException;
  * @author Giovanni Silva.
  */
 @Configuration
-@ConfigurationProperties(prefix = "params.datasource")
+@ConfigurationProperties(prefix = "spring.datasource")
 @EntityScan(basePackages = "info.atende.audition.model")
 public class JPAConfig extends HikariConfig {
     @Bean
