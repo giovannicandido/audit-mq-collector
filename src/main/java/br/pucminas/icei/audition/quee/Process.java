@@ -3,7 +3,7 @@ package br.pucminas.icei.audition.quee;
 import br.pucminas.icei.audition.AuditCollectorException;
 import br.pucminas.icei.audition.AuditCollectorExceptionEvent;
 import br.pucminas.icei.audition.AuditEventDAO;
-import br.pucminas.icei.audition.entity.AuditEvent;
+import info.atende.audition.model.AuditEvent;
 import org.apache.log4j.Logger;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.core.MessageListener;

@@ -1,6 +1,6 @@
 package br.pucminas.icei.audition;
 
-import br.pucminas.icei.audition.entity.AuditEvent;
+import info.atende.audition.model.AuditEvent;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
