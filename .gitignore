@@ -7,3 +7,8 @@ classes/
 src/main/resources/application.properties
 src/main/resources/application-dev.properties
 site/
+# wercker
+_builds/
+_cache/
+_projects/
+_steps/
