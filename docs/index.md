@@ -7,6 +7,8 @@
       <a href="https://github.com/atende/audit-mq-collector/tarball/master" class="btn btn-primary">Download .tar.gz</a>
 </section>
 
+[![wercker status](https://app.wercker.com/status/8f0659a0ebfe7d2587279599cab8b6f3/m "wercker status")](https://app.wercker.com/project/bykey/8f0659a0ebfe7d2587279599cab8b6f3)
+
 Audit Message Queue Collector
 
 This component collects AuditEvent messages in the queue and stores it on the database
@@ -14,7 +16,7 @@ This component collects AuditEvent messages in the queue and stores it on the da
 This component when deployed will version the database and creates all necessary tables. However You don't need to worry about
 concurrent access, tanks to [FlywayDB] migration project.
 
-It aim to be robust. For that reason, in cases where the database if off, it keeps the messages in the queue, sleep
+It aim to be robust. For that reason, in cases where the database is off, it keeps the messages in the queue, sleep
 and try again later.
 
 For more information about all project components check [Project Home]
