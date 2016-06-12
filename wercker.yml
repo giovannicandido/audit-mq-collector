@@ -1,12 +1,31 @@
 box: atende/build-image
+services:
+   - id: postgres
+     tag: 9.5
+     env:
+       POSTGRES_PASSWORD: Thooch5r
+   - id: rabbitmq
+     tag: 3.6
 
 build:
   steps:
     - script:
+      name: env
+      code: env
+    - script: 
+      name: "Wait for POSTGRES connection" 
+      code: | 
+        echo "Postgresql on $POSTGRES_PORT_5432_TCP_ADDR $POSTGRES_PORT_5432_TCP_PORT"
+        while ! pg_isready -h $POSTGRES_PORT_5432_TCP_ADDR -p $POSTGRES_PORT_5432_TCP_PORT 
+        do 
+          sleep 3; 
+        done
+    - script:
       name: gradle build
       code: |
         export GRADLE_USER_HOME=$WERCKER_CACHE_DIR/gradle
-        ./gradlew --full-stacktrace -q build
+        export SPRING_PROFILES_ACTIVE=ci
+        ./gradlew --full-stacktrace build
     - script:
       name: build docs
       code: |
