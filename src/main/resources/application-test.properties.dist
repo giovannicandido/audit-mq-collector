@@ -1,0 +1,6 @@
+logging.level.ROOT=INFO
+spring.rabbitmq.host=docker.local
+spring.datasource.jdbc-url=jdbc:postgresql://localhost/audit-test
+spring.datasource.username=giovanni
+spring.datasource.password=1234
+server.port=8082
