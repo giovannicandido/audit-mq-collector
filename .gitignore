@@ -4,7 +4,6 @@ build/
 .gradle/
 logs/
 classes/
-src/main/resources/application.properties
 src/main/resources/application-dev.properties
 site/
 # wercker
