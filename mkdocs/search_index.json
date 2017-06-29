@@ -1,0 +1,29 @@
+{
+    "docs": [
+        {
+            "location": "/", 
+            "text": "Audit-docs\n\n      \nDocumentation for the project Audition\n\n      \nView on GitHub\n\n      \nDownload .zip\n\n      \nDownload .tar.gz\n\n\n\n\n\n\n\nAudit Message Queue Collector\n\n\nThis component collects AuditEvent messages in the queue and stores it on the database\n\n\nThis component when deployed will version the database and creates all necessary tables. However You don't need to worry about\nconcurrent access, tanks to \nFlywayDB\n migration project.\n\n\nIt aim to be robust. For that reason, in cases where the database is off, it keeps the messages in the queue, sleep\nand try again later.\n\n\nFor more information about all project components check \nProject Home", 
+            "title": "Home"
+        }, 
+        {
+            "location": "/configuration/", 
+            "text": "App configuration\n\n\nThe application can be configure using spring boot configuration properties\n\n\nhttp://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html\n\n\nThat mean you can use startup params like in: \njava -jar application.jar --spring.datasource.username=bla\n or environment\nvariables like \nexport SPRING_DATASOURCE_USERNAME=bla\n\n\nDatabase\n\n\nspring.datasource.username=bla\nspring.datasource.password=xyz\nspring.datasource.jdbc-url=jdbc:postgres://localhost/audit\nspring.datasource.driver-class-name=org.postgresql.Driver # defautls to org.postgresql.Driver\nspring.datasource.maximumPoolSize=5 # defaults to 5\nspring.datasource.connection-timeout=5000 # defaults to 5000\n\n\n\nQueue\n\n\n# Queue URL\nspring.rabbitmq.host=docker.local\n# If you need authentication in que queue\nspring.rabbitmq.password=user\nspring.rabbitmq.username=pass\naudit.queue.name=auditLog\n# Max number of exceptions before pause listen to the queue. Default is 10\naudit.max-queue-exception=10\n# Time out to reconnect to the queue after it stop listen. Default is 30\naudit.queue-reconnect-time-out=30\n\n\n\nAs Environment Variables\n\n\nexport SPRING_DATASOURCE_USERNAME=bla\nexport SPRING_DATASOURCE_PASSWORD=xyz\nexport SPRING_DATASOURCE_JDBC_URL=jdbc:postgres://localhost/audit\nexport SPRING_DATASOURCE_DRIVER_CLASS_NAME=org.postgresql.Driver # defautls to org.postgresql.Driver\nexport SPRING_DATASOURCE_MAXIMUM_POOL_SIZE=5 # defaults to 5\nexport SPRING_DATASOURCE_CONNECTION_TIMEOUT=5000 # defaults to 5000", 
+            "title": "Configuration"
+        }, 
+        {
+            "location": "/configuration/#app-configuration", 
+            "text": "The application can be configure using spring boot configuration properties  http://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html  That mean you can use startup params like in:  java -jar application.jar --spring.datasource.username=bla  or environment\nvariables like  export SPRING_DATASOURCE_USERNAME=bla", 
+            "title": "App configuration"
+        }, 
+        {
+            "location": "/configuration/#database", 
+            "text": "spring.datasource.username=bla\nspring.datasource.password=xyz\nspring.datasource.jdbc-url=jdbc:postgres://localhost/audit\nspring.datasource.driver-class-name=org.postgresql.Driver # defautls to org.postgresql.Driver\nspring.datasource.maximumPoolSize=5 # defaults to 5\nspring.datasource.connection-timeout=5000 # defaults to 5000", 
+            "title": "Database"
+        }, 
+        {
+            "location": "/configuration/#queue", 
+            "text": "# Queue URL\nspring.rabbitmq.host=docker.local\n# If you need authentication in que queue\nspring.rabbitmq.password=user\nspring.rabbitmq.username=pass\naudit.queue.name=auditLog\n# Max number of exceptions before pause listen to the queue. Default is 10\naudit.max-queue-exception=10\n# Time out to reconnect to the queue after it stop listen. Default is 30\naudit.queue-reconnect-time-out=30  As Environment Variables  export SPRING_DATASOURCE_USERNAME=bla\nexport SPRING_DATASOURCE_PASSWORD=xyz\nexport SPRING_DATASOURCE_JDBC_URL=jdbc:postgres://localhost/audit\nexport SPRING_DATASOURCE_DRIVER_CLASS_NAME=org.postgresql.Driver # defautls to org.postgresql.Driver\nexport SPRING_DATASOURCE_MAXIMUM_POOL_SIZE=5 # defaults to 5\nexport SPRING_DATASOURCE_CONNECTION_TIMEOUT=5000 # defaults to 5000", 
+            "title": "Queue"
+        }
+    ]
+}
